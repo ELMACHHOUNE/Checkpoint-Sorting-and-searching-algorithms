@@ -1,0 +1,30 @@
+//Insertion sort Algorithme
+
+
+PROCEDURE swap(VAR Case1, VAR Case2 : INTEGER) 
+
+VAR
+   Temp : INTEGER;
+
+BEGIN
+  Temp := Case1;
+  Case1 := Case2;
+  Case2 := Temp;
+END
+
+PROCEDURE insertion_sort(VAR tab: ARRAY_OF INTEGER)        //déclaration des variables pour utiliser la boucle
+
+
+VAR
+    i,j,n : INTEGER
+
+BEGIN
+    n:= tab.length;                             //n pour longueur de la table
+    FOR i FROM 1 TO n-1 STEP 1 DO
+    j := i
+        WHILE (j > 0 and tab[j-1] > tab[j]) DO
+            swap(tab[j], tab[j-1])
+            j := j - 1
+        END_WHILE
+   END_FOR
+END
